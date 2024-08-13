@@ -27,10 +27,12 @@ SpringCloud 中使用HTTP+JSON的方式远程调用
 ## 负载均衡
 分布式系统中, A服务需要调用B服务，B服务在多台机器中都存在，A调用任意一个服务器均可完成功能 <br />
 为了是每一个服务器都不要太忙或者太闲，我们可以负载均衡调用每一台服务器，提升网站的健壮性 <br />
+![负载均衡](https://github.com/stone-coding/Distributed-Ecommerce-Website-Note/blob/main/images/Screenshot%202024-08-13%20205926.png)
 
 ## 常见的负载均衡算法
 ## 轮询
 位第一个请求选择健康池中的第一个后端服务器，然后按顺序往后依次选择，知道最后一个，然后循环 <br />
+
 
 ## 最小连接
 优先选择连接数量最少，也就是压力最小的后端服务器，在会话较长的情况下可能会采取这种方式 <br />
@@ -38,10 +40,12 @@ SpringCloud 中使用HTTP+JSON的方式远程调用
 ## 服务注册/发现/注册中心
 A服务调用B服务， A服务并不知道B服务在那几台服务器有，哪些是正常的，哪些服务已经下线，<br />
 解决这个问题可以引入注册中心。如果某些服务下线，我们其他人可以实时感受到其他服务的状态，从而避免不可调用的服务器<br />
+![注册中心](https://github.com/stone-coding/Distributed-Ecommerce-Website-Note/blob/main/images/Screenshot%202024-08-13%20205939.png)
 
 ## 配置中心
 每一个服务都最终有大量配置，并且每个服务都可能部署在多台机器上。我们经常需要变更配置 <br />
-，我们可以让每一个服务在配置中心获取自己的配置,配置中心用来管理微服务的配置信息.
+，我们可以让每一个服务在配置中心获取自己的配置,配置中心用来管理微服务的配置信息.<br />
+![配置中心](https://github.com/stone-coding/Distributed-Ecommerce-Website-Note/blob/main/images/Screenshot%202024-08-13%20205945.png)
 
 ## 服务的熔断和降级
 在微服务架构中，服务器之间通过网络进行通信，存在相互依赖，其中一个服务不可用时，有可能造成雪崩效应 <br/>
@@ -51,10 +55,15 @@ A服务调用B服务， A服务并不知道B服务在那几台服务器有，哪
 **服务熔断：因为库存服务超时，当库存服务调用失败超过一个特定值比如100次后，我们开启短路保护机制，后来的请求不回去 <br/>**
 **调用这个服务。本地返回默认的数据 <br />**
 
+![服务的熔断和降级](https://github.com/stone-coding/Distributed-Ecommerce-Website-Note/blob/main/images/Screenshot%202024-08-13%20205952.png)
+
 **服务降级: 在运维期间，当系统处于高峰期，系统资源紧张，我们可以让非核心业务降级运行。降级：某些业务不处理 <br/>**
 **或者简单处理【抛异常，返回NULL，调用MOCK数据，调用Fallback处理逻辑】<br />**
 
 ## API网关（商场的安检门）
 在微服务中，API Gateway作为整体架构的重要组件，它抽象了为赋中所需要的公正功能。同时提供了客户端负载均衡，服务自动熔断<br />
 ，灰色发布，统一认证，限流流控，日志记录等丰富功能，帮助我们解决很多API管理难题。他还可以拦截前端的Http请求来认证....<br />
+
+
+![API网关（商场的安检门）](https://github.com/stone-coding/Distributed-Ecommerce-Website-Note/blob/main/images/Screenshot%202024-08-13%20205959.png)
 
