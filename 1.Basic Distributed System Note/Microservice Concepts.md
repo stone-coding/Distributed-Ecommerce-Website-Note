@@ -22,7 +22,7 @@
 在分布式系统中，各个服务处于不同主机，但是服务之间不可避免互相调用，我们称为远程调用 <br />
 SpringCloud 中使用HTTP+JSON的方式远程调用
 
-![远程调用](https://drive.google.com/file/d/1KsSdK83Ty3SrgIMSyNvisD3bV5dH4Anm/view?usp=sharing)
+![远程调用](images/Screenshot 2024-08-13 205912.png)
 
 ## 负载均衡
 分布式系统中, A服务需要调用B服务，B服务在多台机器中都存在，A调用任意一个服务器均可完成功能 <br />
